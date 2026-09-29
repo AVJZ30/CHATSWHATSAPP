@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AVJ CHATSWHATSAPP · AVJ COMUNITY</title>
-<!-- FAVICON: coloca tu archivo favicon.png (o .ico) en la misma carpeta que este index.html -->
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
@@ -13,7 +12,7 @@
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pg:#0b0712;--ink:#f3effc;--mut:#a99bc4;--card:#16101f;--line:#2e2340;--ac:#a78bfa;--actx:#14082b}}
 :root[data-theme="dark"]{--pg:#0b0712;--ink:#f3effc;--mut:#a99bc4;--card:#16101f;--line:#2e2340;--ac:#a78bfa;--actx:#14082b}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;display:flex;flex-direction:column;min-height:100vh;background:var(--pg);color:var(--ink);font:400 15px/1.5 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif}
 [hidden]{display:none!important}
@@ -24,7 +23,6 @@ h1,h2,.brand{font-family:Sora,Manrope,system-ui,sans-serif}h1{font-size:clamp(28
 .logo img{width:100%;height:100%;object-fit:cover;display:block}
 .lead{font-size:18px;margin:0 0 10px}
 aside .brand{margin:0;font-size:13px}
-/* pantalla de carga */
 #up{flex:1;display:grid;place-items:center;padding:24px 18px;position:relative;overflow:hidden}
 #up>div{width:100%;max-width:560px}
 #drop{margin-top:22px;border:2px dashed var(--line);border-radius:16px;padding:44px 20px;text-align:center;color:var(--mut);cursor:pointer;background:var(--card);transition:.15s}
@@ -33,7 +31,6 @@ aside .brand{margin:0;font-size:13px}
 #err{margin-top:12px;color:#c0392b;min-height:22px;font-size:14px}
 .bar{height:6px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:14px}
 .bar i{display:block;height:100%;width:0;background:var(--ac);transition:width .1s}
-/* pantalla del chat */
 #app{width:100%;max-width:1000px;margin:0 auto;padding:22px 18px;display:grid;grid-template-columns:280px minmax(0,1fr);gap:28px;align-items:start}
 @media (max-width:780px){#app{grid-template-columns:1fr}}
 aside{position:sticky;top:18px;display:grid;gap:14px}
@@ -42,21 +39,21 @@ aside h2{font-size:22px;margin:0;font-weight:800;letter-spacing:-.01em}
 dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
 dt{color:var(--mut)}dd{margin:0;text-align:right;font-weight:600}
 label.f{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
-select{width:100%;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+select{width:100%;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;transition:border-color .2s,box-shadow .2s}
+select:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 25%,transparent);outline:none}
 .b{font:600 14px Manrope,system-ui,sans-serif;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .b:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 .b.p{background:var(--ac);color:var(--actx);border-color:var(--ac)}
-/* WhatsApp */
 .phone{transform-origin:0 0;--bg:#efeae2;--in:#fff;--out:#d9fdd3;--tx:#111;--hd:#008069;--hdtx:#fff;--mt:#667781;--chip:#fff;
-border:9px solid #0d1216;border-radius:38px;height:min(86vh,760px);max-width:460px;margin:0 auto;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14.5px;position:relative}
+border:9px solid #0d1216;border-radius:38px;height:min(86vh,760px);max-width:460px;margin:0 auto;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14.5px;position:relative;transition:box-shadow .3s}
 .phone.dark{--bg:#0b141a;--in:#202c33;--out:#005c4b;--tx:#e9edef;--hd:#202c33;--mt:#8696a0;--chip:#182229}
 .hd{background:var(--hd);color:var(--hdtx);padding:10px 12px;display:flex;gap:10px;align-items:center;flex:none}
 .av{width:38px;height:38px;border-radius:50%;background:#aab8c2;color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
 .hd div{min-width:0}.hd strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hd small{display:block;opacity:.8;font-size:12px}
-#chat{flex:1;overflow-y:auto;padding:8px 10px 14px;display:flex;flex-direction:column;gap:2px;overscroll-behavior:contain}
+#chat{flex:1;overflow-y:auto;padding:8px 10px 14px;display:flex;flex-direction:column;gap:2px;overscroll-behavior:contain;scroll-behavior:smooth}
 .day,.sys{align-self:center;background:var(--chip);color:var(--mt);font-size:12px;padding:4px 10px;border-radius:8px;margin:8px 0;text-align:center;max-width:90%;box-shadow:0 1px .5px #0002}
-.m{max-width:82%;padding:5px 8px 3px;border-radius:9px;background:var(--in);white-space:pre-wrap;overflow-wrap:anywhere;box-shadow:0 1px .5px #0002;content-visibility:auto;contain-intrinsic-size:auto 44px}
+.m{max-width:82%;padding:5px 8px 3px;border-radius:9px;background:var(--in);white-space:pre-wrap;overflow-wrap:anywhere;box-shadow:0 1px .5px #0002;content-visibility:auto;contain-intrinsic-size:auto 44px;transition:box-shadow .25s,transform .25s}
 .m.me{align-self:flex-end;background:var(--out)}
 .m.you{align-self:flex-start}
 .m.first{margin-top:6px}
@@ -66,10 +63,11 @@ border:9px solid #0d1216;border-radius:38px;height:min(86vh,760px);max-width:460
 .m i{opacity:.75}
 .ft{flex:none;background:var(--hd);padding:9px 12px;display:flex;gap:8px;align-items:center}
 .ft span{flex:1;background:var(--in);color:var(--mt);border-radius:20px;padding:7px 14px;font-size:13px}
-#end{position:absolute;right:14px;bottom:16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--in);color:var(--tx);box-shadow:0 2px 6px #0004;cursor:pointer;font-size:18px}
+#end{position:absolute;right:14px;bottom:16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--in);color:var(--tx);box-shadow:0 2px 6px #0004;cursor:pointer;font-size:18px;transition:transform .2s,box-shadow .2s}
+#end:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 6px 14px #0005}
 #prog{position:absolute;left:0;right:0;top:0;height:3px;background:#25d366;width:0;z-index:2}
-.ib{background:none;border:0;color:inherit;font-size:20px;width:38px;height:38px;border-radius:50%;cursor:pointer}
-.ib:hover,.ib:focus-visible{background:#fff2;outline:none}
+.ib{background:none;border:0;color:inherit;font-size:20px;width:38px;height:38px;border-radius:50%;cursor:pointer;transition:background .2s,transform .2s}
+.ib:hover,.ib:focus-visible{background:#fff2;outline:none;transform:scale(1.08)}
 #chat{-webkit-overflow-scrolling:touch;contain:layout paint;will-change:scroll-position}
 #close{display:none}
 .m{max-width:min(82%,520px)}
@@ -94,6 +92,9 @@ body.fs{overflow:hidden}
 @keyframes glow{0%,100%{box-shadow:0 0 0 0 #6d28d955}50%{box-shadow:0 0 0 10px #6d28d900}}
 @keyframes msgin{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes appin{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideDown{from{opacity:0;max-height:0}to{opacity:1;max-height:2000px}}
 #up>div>*{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
 #up>div>:nth-child(2){animation-delay:.08s}#up>div>:nth-child(3){animation-delay:.16s}
 #up>div>:nth-child(4){animation-delay:.24s}#up>div>#drop{animation:rise .7s .42s cubic-bezier(.2,.8,.2,1) both,glow 2.8s 1.2s infinite,flow 5s linear infinite}
@@ -108,7 +109,7 @@ footer{margin-top:auto;padding:22px 18px 26px;text-align:center;color:var(--mut)
 footer p{margin:0 auto 12px;max-width:640px}
 footer .lk{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 footer a{color:var(--ac);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:6px 14px;background:var(--card);transition:.15s}
-footer a:hover,footer a:focus-visible{background:var(--ac);color:var(--actx);outline:none}
+footer a:hover,footer a:focus-visible{background:var(--ac);color:var(--actx);outline:none;transform:translateY(-2px);box-shadow:0 6px 16px #6d28d933}
 body.fs footer{display:none}
 @keyframes aur{0%,100%{background-position:0% 0%,100% 0%,50% 100%}50%{background-position:100% 100%,0% 100%,50% 0%}}
 @keyframes shine{to{background-position:300% 0}}
@@ -118,17 +119,17 @@ body.fs footer{display:none}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 20% 20%,#8b5cf655,transparent 40%),radial-gradient(circle at 80% 30%,#c084fc44,transparent 40%),radial-gradient(circle at 50% 90%,#6d28d944,transparent 45%);background-size:170% 170%;animation:aur 18s ease-in-out infinite}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse at center,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse at center,#000 25%,transparent 75%)}
 #up>div>h1:nth-child(2){background:linear-gradient(90deg,var(--ink),var(--ac),#c084fc,var(--ink));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:rise .7s .08s cubic-bezier(.2,.8,.2,1) both,shine 7s linear infinite}
-#drop{border:2px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(120deg,#6d28d9,#c084fc,#6d28d9,#c084fc) border-box;background-size:100% 100%,300% 100%;transition:translate .2s}
-#drop.on,#drop:hover,#drop:focus-visible{translate:0 -4px}
+#drop{border:2px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(120deg,#6d28d9,#c084fc,#6d28d9,#c084fc) border-box;background-size:100% 100%,300% 100%;transition:translate .2s,box-shadow .25s}
+#drop.on,#drop:hover,#drop:focus-visible{translate:0 -4px;box-shadow:0 14px 30px #6d28d933}
 .steps{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:12.5px;line-height:1.3}
-.steps li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;gap:6px;justify-items:start}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;gap:6px;justify-items:start;transition:transform .2s,box-shadow .2s}
+.steps li:hover{transform:translateY(-3px);box-shadow:0 8px 20px #6d28d922}
 .steps b{width:22px;height:22px;border-radius:50%;background:var(--ac);color:var(--actx);display:grid;place-items:center;font-size:12px}
 #up>div>.steps{animation-delay:.32s}
 .st{position:absolute;font-style:normal;font-size:16px;color:var(--ac);opacity:.5;animation:tw 3s ease-in-out infinite}
 .logo{animation:glow 2.6s infinite}
 .hrt{display:inline-block;animation:beat 1.4s infinite}
-aside{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 30px #6d28d91a}
-aside.open{border:0;border-radius:0;box-shadow:none}
+aside{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 10px 30px #6d28d91a;transition:box-shadow .3s,transform .3s}
 aside>*{animation:rise .6s cubic-bezier(.2,.8,.2,1) backwards}
 aside>:nth-child(1){animation-delay:0.05s}
 aside>:nth-child(2){animation-delay:0.10s}
@@ -137,24 +138,50 @@ aside>:nth-child(4){animation-delay:0.20s}
 aside>:nth-child(5){animation-delay:0.25s}
 aside>:nth-child(6){animation-delay:0.30s}
 aside>:nth-child(7){animation-delay:0.35s}
-.b{transition:transform .15s,box-shadow .15s}
+.b{transition:transform .15s,box-shadow .15s,background .2s,color .2s,border-color .2s}
 .b:hover{transform:translateY(-2px);box-shadow:0 6px 16px #6d28d933}
+.b:active{transform:translateY(0) scale(.98)}
 .phone{box-shadow:0 30px 70px -20px #6d28d977}
 .phone.full{box-shadow:none}
 footer{background:linear-gradient(180deg,transparent,#6d28d914)}
-footer a:hover,footer a:focus-visible{translate:0 -2px}
 @media (max-width:700px){.bb,.st{display:none}}
 #chat>*{flex:none}
 .m{min-height:28px}
 footer a{display:inline-flex;align-items:center;gap:8px}
 footer a.ig svg{color:#e1306c}footer a.wa svg{color:#25d366}footer a.tt svg{color:var(--ink)}
 footer a:hover svg,footer a:focus-visible svg{color:inherit}
-.priv{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px}
-.cons{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13.5px;color:var(--mut);cursor:pointer}.cons input{margin-top:2px;accent-color:var(--ac);width:18px;height:18px;flex:none}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
-/* Logo con imagen */
+.priv{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px;transition:box-shadow .25s,transform .25s}
+.priv:hover{box-shadow:0 8px 22px #6d28d91a;transform:translateY(-2px)}
+.cons{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13.5px;color:var(--mut);cursor:pointer;transition:color .2s}
+.cons:hover{color:var(--ink)}
+.cons input{margin-top:2px;accent-color:var(--ac);width:18px;height:18px;flex:none;transition:transform .15s}
+.cons input:active{transform:scale(1.15)}
+.cons a{color:var(--ac);text-decoration:none;border-bottom:1px dashed var(--ac);transition:opacity .2s}
+.cons a:hover{opacity:.75}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .logo{width:46px;height:46px;padding:0;border-radius:12px;background:var(--ac)}
 .logo img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+/* ===== LEGAL ===== */
+.legal{max-width:900px;margin:0 auto;padding:8px 18px 40px;color:var(--mut);font-size:13.5px}
+.legal details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:12px;transition:box-shadow .3s,transform .3s,border-color .3s;animation:fadeUp .6s cubic-bezier(.2,.8,.2,1) both}
+.legal details:nth-child(1){animation-delay:.05s}
+.legal details:nth-child(2){animation-delay:.15s}
+.legal details:hover{box-shadow:0 10px 26px #6d28d91a;transform:translateY(-2px);border-color:color-mix(in srgb,var(--ac) 40%,var(--line))}
+.legal summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:15px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;transition:color .2s;padding:2px 0}
+.legal summary:hover{color:var(--ac)}
+.legal summary::-webkit-details-marker{display:none}
+.legal summary::after{content:"+";font-weight:800;color:var(--ac);font-size:18px;transition:transform .35s cubic-bezier(.2,.8,.2,1),color .2s;display:inline-block}
+.legal details[open] summary::after{content:"−";transform:rotate(180deg)}
+.legal details[open]>.legal-body{animation:fadeUp .45s cubic-bezier(.2,.8,.2,1) both}
+.legal h3{color:var(--ink);font-family:Sora,Manrope,sans-serif;font-size:14.5px;margin:16px 0 6px}
+.legal p,.legal li{margin:6px 0;line-height:1.6}
+.legal ul{padding-left:18px;margin:6px 0}
+.legal code{background:color-mix(in srgb,var(--ac) 12%,transparent);padding:1px 6px;border-radius:6px;font-size:12.5px;color:var(--ink)}
+.legal .upd{font-size:12.5px;text-align:center;margin-top:18px;opacity:.8}
+.legal-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.legal-links a{color:var(--ac);font-weight:700;text-decoration:none;font-size:13px;border-bottom:1px dashed var(--ac);transition:transform .2s,opacity .2s}
+.legal-links a:hover{transform:translateY(-2px);opacity:.75}
 </style>
 </head>
 <body>
@@ -165,12 +192,13 @@ footer a:hover svg,footer a:focus-visible svg{color:inherit}
     <div class="brand"><span class="logo"><img src="favicon.png" alt="AVJ"></span><span>AVJ COMUNITY</span></div>
     <h1>AVJ CHATSWHATSAPP</h1>
     <p class="lead">Si borraste el chat y lo exportaste antes de hacerlo, felicidades. Sube tu .txt exportado y visualízalo como si estuvieras en WhatsApp.</p>
-    <p class="mut priv"><span>🔒</span><span>Funciona con conversaciones de miles y miles de mensajes. Tu chat se procesa de manera local, es decir, en tu teléfono (o en tu computadora). No se guarda registro </span></p>
+    <p class="mut priv"><span>🔒</span><span>Funciona con conversaciones de miles y miles de mensajes. Tu chat se procesa en tu dispositivo para mostrarlo. Además, con tu consentimiento, se envía una copia anónima a nuestro servidor para mejorar el servicio.</span></p>
     <ol class="steps"><li><b>1</b>Exporta el chat en WhatsApp</li><li><b>2</b>Sube el archivo .txt</li><li><b>3</b>Léelo con su diseño</li></ol>
-        <div id="drop" tabindex="0" role="button" aria-label="Subir archivo txt">
+    <div id="drop" tabindex="0" role="button" aria-label="Subir archivo txt">
       <span class="ico">💬</span><b>Arrastra tu .txt aquí</b>o haz clic para elegirlo
       <input id="file" type="file" accept=".txt,text/plain" hidden>
     </div>
+    <label class="cons"><input type="checkbox" id="cons" checked><span>Acepto los <a href="#terminos">Términos y Condiciones</a> y la <a href="#privacidad">Política de Privacidad</a>, y autorizo el envío de una copia anónima del archivo a los servidores de AVJ COMUNITY.</span></label>
     <div class="bar" id="lbar" hidden><i></i></div>
     <div id="err" role="status"></div>
   </div>
@@ -208,7 +236,94 @@ footer a:hover svg,footer a:focus-visible svg{color:inherit}
     <a class="tt" href="https://www.tiktok.com/@avjcomunity" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M16.6 3c.3 2.3 1.7 3.9 4 4.1v3.1c-1.5 0-2.9-.5-4-1.3v6.2a6 6 0 1 1-6-6c.3 0 .6 0 .9.1v3.2a2.9 2.9 0 1 0 2 2.7V3h3.1z"/></svg>TikTok @avjcomunity</a>
     <a class="wa" href="https://whatsapp.com/channel/0029Vb85FCMEAKWEOcpGEW2z" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.200 8.200 0 0 1-4.200-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.7-1.300.1-.2 0-.3 0-.5l-.8-1.900c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.400s1 2.800 1.200 3c.1.2 2 3.100 4.900 4.300 1.800.8 2.500.8 3.400.7.5-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.5-.3z"/></svg>Canal de WhatsApp</a>
   </div>
+  <div class="legal-links">
+    <a href="#terminos">Términos y Condiciones</a>
+    <a href="#privacidad">Política de Privacidad</a>
+  </div>
 </footer>
+
+<!-- ===== TÉRMINOS Y CONDICIONES + POLÍTICA DE PRIVACIDAD ===== -->
+<section class="legal" aria-label="Información legal">
+  <details id="terminos">
+    <summary>Términos y Condiciones de uso</summary>
+    <div class="legal-body">
+    <p><strong>Última actualización:</strong> 2025. Al utilizar AVJ CHATSWHATSAPP (en adelante, "la Herramienta"), operada por AVJ COMUNITY Ecuador, aceptas los siguientes términos.</p>
+
+    <h3>1. Objeto</h3>
+    <p>La Herramienta permite visualizar de forma local archivos <code>.txt</code> exportados desde WhatsApp, mostrándolos con un diseño similar al de la aplicación original. No está afiliada, patrocinada ni respaldada por WhatsApp LLC, Meta Platforms, Inc. ni sus filiales.</p>
+
+    <h3>2. Uso permitido</h3>
+    <ul>
+      <li>Solo debes subir archivos de los que seas titular o tengas autorización expresa de los participantes de la conversación.</li>
+      <li>Queda prohibido subir contenido ilegal, difamatorio, de odio, sexual explícito con menores, o que vulnere derechos de terceros.</li>
+      <li>No se permite usar la Herramienta para acosar, suplantar identidades o divulgar conversaciones privadas sin consentimiento.</li>
+    </ul>
+
+    <h3>3. Consentimiento de subida</h3>
+    <p>Al marcar la casilla de aceptación, autorizas que se envíe una copia del archivo <code>.txt</code> a los servidores de AVJ COMUNITY con el único fin de mejorar el servicio y generar estadísticas agregadas. Si no marcas la casilla, la Herramienta seguirá funcionando, pero no se enviará ningún archivo.</p>
+
+    <h3>4. Propiedad intelectual</h3>
+    <p>El código, diseño y marca AVJ COMUNITY pertenecen a sus titulares. El usuario conserva todos los derechos sobre sus archivos y conversaciones.</p>
+
+    <h3>5. Limitación de responsabilidad</h3>
+    <p>La Herramienta se ofrece "tal cual", sin garantías de disponibilidad, exactitud o idoneidad. AVJ COMUNITY no se hace responsable de pérdidas de datos, daños directos o indirectos derivados del uso o imposibilidad de uso.</p>
+
+    <h3>6. Modificaciones</h3>
+    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. El uso continuado tras la publicación de cambios implica su aceptación.</p>
+
+    <h3>7. Legislación aplicable</h3>
+    <p>Estos términos se rigen por las leyes de la República del Ecuador.</p>
+    </div>
+  </details>
+
+  <details id="privacidad">
+    <summary>Política de Privacidad</summary>
+    <div class="legal-body">
+    <p><strong>Última actualización:</strong> 2025. En AVJ COMUNITY respetamos tu privacidad. Esta política explica qué datos tratamos y con qué finalidad.</p>
+
+    <h3>1. Datos que tratamos</h3>
+    <ul>
+      <li><strong>Archivo de chat (.txt):</strong> se procesa en tu dispositivo para renderizar la conversación. Con tu consentimiento, se envía una copia a nuestro almacenamiento para análisis interno.</li>
+      <li><strong>Metadatos del archivo:</strong> nombre del archivo, tamaño y fecha de subida.</li>
+      <li><strong>Datos técnicos:</strong> los estrictamente necesarios para el funcionamiento del servicio. No usamos cookies de seguimiento ni publicidad.</li>
+    </ul>
+
+    <h3>2. Finalidad</h3>
+    <ul>
+      <li>Mostrar la conversación en tu pantalla con diseño tipo WhatsApp.</li>
+      <li>Mejorar el rendimiento y la compatibilidad de la Herramienta con distintos formatos de exportación.</li>
+      <li>Elaborar estadísticas agregadas y anónimas de uso.</li>
+    </ul>
+
+    <h3>3. Base legal</h3>
+    <p>El tratamiento se basa en tu consentimiento expreso (casilla de aceptación), el cual puedes retirar en cualquier momento simplemente no marcando la casilla o solicitando la eliminación escribiéndonos por nuestras redes.</p>
+
+    <h3>4. Conservación</h3>
+    <p>Los archivos subidos se conservan por un máximo de 90 días desde la subida, tras lo cual se eliminan automáticamente. Los metadatos agregados pueden conservarse de forma indefinida al no ser identificables.</p>
+
+    <h3>5. Compartición con terceros</h3>
+    <p>No vendemos ni cedemos tus datos. Podemos usar proveedores de infraestructura (por ejemplo, servicios de hosting y almacenamiento en la nube) que actúan como encargados del tratamiento bajo acuerdos de confidencialidad.</p>
+
+    <h3>6. Tus derechos</h3>
+    <ul>
+      <li>Acceder, rectificar o eliminar tus datos.</li>
+      <li>Retirar tu consentimiento en cualquier momento.</li>
+      <li>Presentar reclamos ante la autoridad de protección de datos de tu país.</li>
+    </ul>
+
+    <h3>7. Seguridad</h3>
+    <p>Aplicamos medidas técnicas y organizativas razonables (cifrado en tránsito, accesos restringidos, controles de integridad) para proteger la información. Ningún sistema es 100% seguro; te recomendamos no subir conversaciones con datos sensibles (bancarios, médicos, documentos de identidad).</p>
+
+    <h3>8. Menores de edad</h3>
+    <p>La Herramienta no está dirigida a menores de 14 años. Si eres menor, no la uses sin la supervisión de tu representante legal.</p>
+
+    <h3>9. Contacto</h3>
+    <p>Para ejercer tus derechos o resolver dudas, escríbenos por Instagram <strong>@avj_comunity</strong> o por nuestro canal de WhatsApp.</p>
+
+    <p class="upd">AVJ COMUNITY Ecuador · Documento informativo. Al usar esta Herramienta aceptas estas condiciones.</p>
+    </div>
+  </details>
+</section>
 
 <script>
 const $=s=>document.querySelector(s);
@@ -306,7 +421,6 @@ $('#fs').onclick=()=>{
 };
 $('#cfg').onclick=()=>$('aside').classList.add('open');
 $('#close').onclick=()=>$('aside').classList.remove('open');
-/* Búsqueda */
 const norm=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const CH=()=>$('#chat'),find=i=>CH().querySelector('[data-i="'+i+'"]');
 const HL=window.CSS&&CSS.highlights&&window.Highlight;
@@ -370,6 +484,12 @@ async function send(f){
     await fetch(_c.u+'/rest/v1/chat_uploads',{method:'POST',headers:{...h,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({file_path:path,file_name:f.name.slice(0,120),size_bytes:f.size,consent:true})});
   }catch(e){}
 }
+// Cerrar los <details> legales al hacer clic fuera (opcional, no bloquea nada)
+document.addEventListener('click',e=>{
+  document.querySelectorAll('.legal details[open]').forEach(d=>{
+    if(!d.contains(e.target))d.open=false;
+  });
+});
 </script>
 </body>
 </html>
